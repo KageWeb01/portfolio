@@ -1,0 +1,242 @@
+<!DOCTYPE html><html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KAGEWEB | Портфолио</title>
+  <link rel="icon" href="favicon.png" />
+  <meta property="og:title" content="KAGEWEB | Портфолио" />
+  <meta property="og:image" content="https://your-site.com/preview.jpg" />
+  <style>
+    :root {
+      --bg-color: #0f0f0f;
+      --text-color: #f0f0f0;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+    header {
+      background-color: #1a1a1a;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+      color: #00ffaa;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav a, .theme-toggle {
+      color: inherit;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      background: none;
+      border: 1px solid #555;
+      border-radius: 5px;
+      padding: 0.4rem 0.8rem;
+    }
+    nav a:hover, .theme-toggle:hover {
+      transition: all 0.5s ease;
+      background-color: #00ffaa;
+      color: #000;
+    }
+    section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background-color: #1f1f1f;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px rgba(0, 255, 170, 0.2);
+    }
+    .card h2, .card h3 {
+      margin-top: 0;
+      color: #00ffaa;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 4px;
+      margin-top: 1rem;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .skill {
+      background-color: #2a2a2a;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-size: 0.95rem;
+    }
+    .filters {
+      margin-bottom: 1rem;
+    }
+    .filters button {
+      background-color: #2a2a2a;
+      color: #f0f0f0;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 0.3rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .filters button.active, .filters button:hover {
+      transition: all 0.5s ease;
+      background-color: #00ffaa;
+      color: #000;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .skills {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>KAGEWEB</h1>
+    <nav>
+      <a href="#about">Обо мне</a>
+      <a href="#portfolio">Портфолио</a>
+      <a href="#skills">Навыки</a>
+      <a href="#contact">Контакты</a>
+      <button class="theme-toggle" onclick="toggleTheme()">🌓 Тема</button>
+    </nav>
+  </header>  <section id="about">
+    <h2>👋 Привет! </h2>
+    <p>
+      Я занимаюсь дизайном и программированием. Создаю:
+      <br />
+      — 🎨 логотипы, обложки, оформление
+      <br />
+      — 🤖 Telegram-боты, сайты, интерфейсы
+    </p>
+  </section>  <section id="portfolio">
+    <h2>📁 Портфолио</h2>
+    <div class="filters">
+      <button onclick="filterCards(event, 'all')" class="active">Все</button>
+      <button onclick="filterCards(event, 'design')">Дизайн</button>
+      <button onclick="filterCards(event, 'bot')">Боты</button>
+      <button onclick="filterCards(event, 'site')">Сайты</button>
+    </div><div class="card" data-type="design">
+  <h3>🎨 Обложка YouTube-канала</h3>
+  <p>Минимализм + аниме стиль. Сделано за 1 день.</p>
+  <img src="img/photo_1_2025-07-16_17-34-20.jpg" alt="YouTube Banner" />
+</div>
+
+<div class="card" data-type="bot">
+  <h3>🤖 Telegram-бот для кафе</h3>
+  <p>Заказ еды, меню, автоответ, уведомления. Python + aiogram.</p>
+  <img src="img/photo_2_2025-07-16_17-34-20.jpg" alt="Telegram Bot Screenshot" />
+</div>
+<div class="card" data-type="site">
+  <h3>🌐 Сайт-визитка</h3>
+  <p>HTML/CSS адаптивный сайт для бренда.</p>
+  <img src="img/Снимок экрана 2025-07-16 175911.png" alt="Website Screenshot" />
+</div>
+
+<!-- <div class="card">
+  <h3>💬 Отзыв от клиента</h3>
+  <p>“Спасибо за быструю работу и крутой стиль!” — @client123</p>
+</div> -->
+
+  </section>  <section id="skills">
+    <h2>🛠 Навыки</h2>
+    <div class="skills">
+      <div class="skill">HTML5</div>
+      <div class="skill">CSS3</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Python</div>
+      <div class="skill">Aiogram</div>
+      <div class="skill">Figma</div>
+      <div class="skill">Photoshop</div>
+      <div class="skill">GitHub</div>
+      <div class="skill">Responsive Design</div>
+    </div>
+  </section>  <section id="contact">
+    <h2>📩 Контакты</h2>
+    <p>Telegram: <a href="https://t.me/kageweb_portfolio" target="_blank">@kageweb_portfolio</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/kageweb_portfolio" target="_blank">@kageweb_portfolio</a></p>
+  </section>  <footer>
+    &copy; 2025 KAGEWEB. Все права защищены.
+  </footer>  <script>
+    // Плавная прокрутка
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Смена темы
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    let currentTheme = localStorage.getItem('theme') || (prefersLight ? 'light' : 'dark');
+
+    function applyTheme(theme) {
+      if (theme === 'light') {
+        document.documentElement.style.setProperty('--bg-color', '#580069');
+        document.documentElement.style.setProperty('--text-color', '#ffffff');
+      } else {
+        document.documentElement.style.setProperty('--bg-color', '#0f0f0f');
+        document.documentElement.style.setProperty('--text-color', '#f0f0f0');
+      }
+      localStorage.setItem('theme', theme);
+    }
+
+    function toggleTheme() {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(currentTheme);
+    }
+
+    applyTheme(currentTheme);
+
+    // Фильтрация карточек
+    function filterCards(event, type) {
+      document.querySelectorAll('.filters button').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      document.querySelectorAll('.card').forEach(card => {
+        const ctype = card.getAttribute('data-type');
+        if (!ctype || type === 'all' || type === ctype) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script></body>
+</html>
